@@ -33,3 +33,45 @@ public class Solution {
         return out;
     }
 }
+
+
+
+//  OR
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+public class Solution {
+    public int lPalin(ListNode A) {
+        ListNode slow = A;
+        int ispalin = 1;
+        Stack<Integer> stack = new Stack<Integer>();
+ 
+        while (slow != null) {
+            stack.push(slow.val);
+            slow = slow.next;
+        }
+ 
+        while (A != null) {
+ 
+            int i = stack.pop();
+            if (A.val == i) {
+                ispalin = 1;
+            }
+            else {
+                ispalin = 0;
+                break;
+            }
+            A = A.next;
+        }
+        return ispalin;
+    }
+}
