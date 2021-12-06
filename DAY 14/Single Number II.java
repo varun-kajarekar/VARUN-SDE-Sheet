@@ -27,3 +27,27 @@ public class Solution {
     return ret;
     }
 }
+
+
+
+
+// Bit Manipulation
+
+
+
+
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int singleNumber(final int[] A) {
+
+        int one = 0, two = 0;
+
+        for(int i : A){
+
+            one = (one ^ i) & (~two);
+            two = (two ^ i) & (~one);
+        }
+
+        return one;
+    }
+}
